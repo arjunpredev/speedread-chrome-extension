@@ -123,9 +123,10 @@ export function extractContentBlocks(): ContentBlock[] {
   const seenTexts = new Set<string>();
   const seenElements = new Set<Element>();
 
-  // First, get main page title (h1) - often outside content container
+  // First, get main page title (h1) - always capture regardless of container
+  // (titles are often in header/banner which we normally ignore)
   const mainTitle = document.querySelector('h1');
-  if (mainTitle && isVisible(mainTitle) && !isInsideIgnored(mainTitle)) {
+  if (mainTitle && isVisible(mainTitle)) {
     const text = cleanText(mainTitle.textContent || '');
     const wordCount = getWordCount(text);
     if (wordCount >= MIN_WORD_COUNT_HEADING) {

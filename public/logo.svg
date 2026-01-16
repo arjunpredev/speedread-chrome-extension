@@ -1,17 +1,14 @@
 <svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background circle -->
-  <circle cx="64" cy="64" r="60" fill="#000000"/>
+  <!-- White circle background -->
+  <circle cx="64" cy="64" r="60" fill="#ffffff"/>
 
-  <!-- Speed lines -->
-  <path d="M20 45 L55 45" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.3"/>
-  <path d="M15 64 L50 64" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
-  <path d="M20 83 L55 83" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.3"/>
+  <!-- Eye shape with outline -->
+  <path d="M64 28 C20 28 4 64 4 64 C4 64 20 100 64 100 C108 100 124 64 124 64 C124 64 108 28 64 28 Z"
+        fill="#000000" stroke="#ffffff" stroke-width="2"/>
 
-  <!-- Main letter S with eye integrated -->
-  <path d="M75 35 C95 35 105 45 105 55 C105 65 95 70 80 72 C65 74 55 79 55 89 C55 99 65 105 85 105"
-        stroke="#ffffff" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <!-- White of eye -->
+  <ellipse cx="64" cy="64" rx="22" ry="22" fill="#ffffff"/>
 
-  <!-- Eye/Focus point (the ORP highlight) -->
-  <circle cx="80" cy="72" r="8" fill="#ef4444"/>
-  <circle cx="80" cy="72" r="3" fill="#ffffff"/>
+  <!-- Red pupil/ORP point -->
+  <circle cx="64" cy="64" r="12" fill="#ef4444"/>
 </svg>

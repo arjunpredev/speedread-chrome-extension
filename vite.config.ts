@@ -15,11 +15,11 @@ function copyExtensionFiles() {
         resolve(__dirname, 'dist/manifest.json')
       );
 
-      // Copy icons if they exist
-      const icons = ['icon-16.png', 'icon-48.png', 'icon-128.png'];
-      icons.forEach((icon) => {
-        const src = resolve(__dirname, 'public', icon);
-        const dest = resolve(__dirname, 'dist', icon);
+      // Copy icons and logo if they exist
+      const assets = ['icon-16.png', 'icon-48.png', 'icon-128.png', 'logo.svg'];
+      assets.forEach((asset) => {
+        const src = resolve(__dirname, 'public', asset);
+        const dest = resolve(__dirname, 'dist', asset);
         if (fs.existsSync(src)) {
           fs.copyFileSync(src, dest);
         }

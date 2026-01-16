@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "SpeedRead",
+  "description": "Speed read any article with RSVP technology. Select content, edit words, and read 2-5x faster with ORP highlighting.",
+  "version": "1.0.0",
+  "action": {
+    "default_title": "SpeedRead this page"
+  },
+  "permissions": ["activeTab", "scripting"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

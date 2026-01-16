@@ -1,192 +1,166 @@
-# RSVP Speed Reader
+<p align="center">
+  <img src="public/logo.svg" alt="SpeedRead Logo" width="80" height="80">
+</p>
 
-A lightweight, single-page speed reading web application that transforms pasted text into an immersive RSVP (Rapid Serial Visual Presentation) experience. Read faster while maintaining comprehension through proven speed reading techniques.
+<h1 align="center">SpeedRead</h1>
+
+<p align="center">
+  <strong>Speed read any article on the web with RSVP technology</strong>
+</p>
+
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#how-it-works">How It Works</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#tech-stack">Tech Stack</a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react" alt="React 19">
+  <img src="https://img.shields.io/badge/TypeScript-5.9-3178c6?style=flat-square&logo=typescript" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Vite-7-646cff?style=flat-square&logo=vite" alt="Vite">
+  <img src="https://img.shields.io/badge/Chrome-Extension-4285f4?style=flat-square&logo=googlechrome" alt="Chrome Extension">
+</p>
+
+<p align="center">
+  <a href="https://pre.dev">
+    <img src="https://img.shields.io/badge/Built%20on-pre.dev-black?style=flat-square" alt="Built on pre.dev">
+  </a>
+</p>
+
+---
+
+## Overview
+
+SpeedRead is a Chrome extension that transforms how you consume web content. Using RSVP (Rapid Serial Visual Presentation) technology, it displays one word at a time with intelligent ORP (Optimal Recognition Point) highlighting, allowing you to read 2-5x faster than traditional reading.
+
+**Select exactly what you want to read** - highlight content blocks, edit individual words, then launch into a distraction-free fullscreen reading experience.
 
 ## Features
 
-- **RSVP Display**: Read one word at a time for maximum focus and speed
-- **Optimal Recognition Point (ORP) Highlighting**: Each word is centered with the recognition point (typically at 30% of word length) highlighted in red at the exact screen center for optimal eye fixation
-- **Adjustable Reading Speed**: Control words-per-minute (WPM) from 100 to 1000 WPM with an intuitive slider
-- **Automatic Sentence Pauses**: Intelligent detection of sentence endings automatically applies 1.8x pause multiplier at periods, exclamation marks, and question marks for natural comprehension breaks
-- **Simple Text Input**: Paste any text content and start reading immediately
-- **Playback Controls**: Play, pause, and reset functionality for flexible reading sessions
+- **Smart Content Selection** - Automatically detects article content and lets you select/deselect paragraphs with drag-to-select
+- **Word-Level Editing** - Fine-tune your selection by toggling individual words within any block
+- **Fullscreen RSVP Display** - Immersive black background with white text and red ORP highlight
+- **Flow Mode** - Gradually accelerate reading speed to train your brain over time
+- **Manual WPM Control** - Adjust from 100 to 1000 words per minute
+- **Text Minimap** - See your progress and jump to any position
+- **Keyboard Controls**:
+  - `Space` - Play/Pause
+  - `←/→` - Navigate words
+  - `↑/↓` - Adjust WPM
+  - `R` - Reset to beginning
+  - `Esc` - Close overlay
 
-## Tech Stack
+## How It Works
 
-- **React 19**: Modern UI library for interactive components
-- **TypeScript 5.9**: Static typing for robust code quality
-- **Vite 7**: Lightning-fast build tool with instant HMR (Hot Module Replacement)
-- **Tailwind CSS 4**: Utility-first CSS framework for sleek, responsive design
-- **Lucide React**: Clean, modern icon library
-- **Netlify**: Deployment platform with continuous deployment
+### Content Selection
 
-## Prerequisites
+1. Click the extension icon to overlay the page with selectable content blocks
+2. Blocks are automatically highlighted - click to toggle selection
+3. Drag across multiple blocks to select/deselect in bulk
+4. Click the edit (pencil) icon to toggle individual words
+5. Hit "Start Reading" to begin
 
-- **Node.js 18+** (verify with `node --version`)
-- **npm or yarn** (comes with Node.js)
+### Optimal Recognition Point (ORP)
+
+Each word displays with its ORP (approximately 30% into the word) highlighted in red. This is where your eye naturally fixates, eliminating eye movement and dramatically increasing reading speed.
+
+### Flow Mode
+
+When enabled, your reading speed gradually increases from your starting WPM to your target maximum, training your brain to process text faster over time.
 
 ## Installation
 
-### 1. Clone the repository
+### Building from Source
+
 ```bash
-git clone <repository-url>
+# Clone the repository
+git clone https://github.com/your-username/speedread.git
 cd speedread
-```
 
-### 2. Install dependencies
-```bash
+# Install dependencies
 npm install
+
+# Build the extension
+npm run build
 ```
 
-### 3. Start the development server
+This creates a `dist/` folder with the built extension.
+
+### Loading in Chrome
+
+1. Open Chrome and navigate to `chrome://extensions/`
+2. Enable **Developer mode** (toggle in the top right corner)
+3. Click **Load unpacked**
+4. Select the `dist/` folder from the project directory
+5. The SpeedRead extension icon will appear in your toolbar
+
+### Development
+
 ```bash
+# Watch mode - rebuilds on file changes
 npm run dev
+
+# Run tests
+npm test
+
+# Lint code
+npm run lint
 ```
 
-The app will be available at **http://localhost:3000** with hot module replacement enabled. Code changes will instantly reflect in your browser without refreshing.
+After making changes in watch mode, go to `chrome://extensions/` and click the refresh icon on the SpeedRead extension to reload.
 
 ## Usage
 
-### Basic Workflow
+1. Navigate to any article or webpage you want to speed read
+2. Click the **SpeedRead** extension icon in your toolbar
+3. The page will display with content blocks highlighted
+4. Adjust your selection:
+   - Click blocks to select/deselect
+   - Drag to select multiple blocks
+   - Click the pencil icon to edit individual words
+5. Click **Start Reading** to launch the RSVP reader
+6. Press `Space` to start, `Esc` to exit
 
-1. **Paste Text**: Copy any text and paste it into the "Paste text here..." text area
-2. **Adjust Speed**: Use the WPM (Words Per Minute) slider to set your reading speed (100-1000 WPM)
-3. **Play**: Click the Play button to start the RSVP display
-4. **Control Playback**:
-   - **Pause**: Pause at any time to reread or think
-   - **Reset**: Return to the beginning of the text
-5. **Clear**: Click the Clear button to remove text and start fresh
+**Pro tip:** Select text on the page before clicking the extension to skip directly to the reader with your selection.
 
-### Tips for Optimal Reading
+## Tech Stack
 
-- **Start slow** (300-400 WPM) to get comfortable with the RSVP format
-- **Increase gradually** as your eye tracking improves
-- **Focus on the red letter** - it's positioned at your natural focal point
-- **Let pauses help you** - the automatic sentence breaks give your brain time to process
+| Technology | Purpose |
+|------------|---------|
+| React 19 | UI Components |
+| TypeScript | Type Safety |
+| Vite 7 | Build Tool |
+| Chrome Extension MV3 | Platform |
+| Shadow DOM | Style Isolation |
 
 ## Project Structure
 
 ```
 src/
-├── components/          # React components
-│   ├── TextInput.tsx   # Text input area
-│   ├── WordDisplay.tsx # ORP word display with red letter
-│   ├── SpeedReaderDisplay.tsx # Main display container
-│   ├── PlaybackControls.tsx    # Play/Pause/Reset/WPM controls
-│   └── ClearButton.tsx  # Clear text button
-├── hooks/
-│   └── useSpeedReader.ts # Core speed reading state and logic
-├── utils/
-│   └── textUtils.ts     # Text parsing, ORP calculation, sentence detection
-├── App.tsx              # Main app component
-├── main.tsx             # React entry point
-└── index.css            # Global styles
+├── extension/
+│   ├── background.ts         # Service worker (icon click handler)
+│   ├── content.tsx           # Content script (mode management)
+│   ├── contentExtractor.ts   # Smart content extraction
+│   ├── SelectionOverlay.tsx  # Content selection UI
+│   └── SpeedReaderOverlay.tsx # RSVP reader UI
+└── utils/
+    └── textUtils.ts          # ORP calculation, text parsing
 ```
 
-## Core Concepts
+## Privacy
 
-### Optimal Recognition Point (ORP)
-
-The ORP is calculated at approximately **30% into each word's length**. This position aligns with where the human eye naturally fixates when reading. By centering all words with the ORP at the screen center and highlighting it in red, the reader's eyes stay fixed in one spot, dramatically improving reading speed while reducing eye strain.
-
-**Calculation**: `orpIndex = Math.round(word.length * 0.3)`
-
-### Auto-Pause Logic
-
-Words ending with sentence punctuation (`.`, `!`, `?`) automatically receive a **1.8x pause multiplier**. This gives your brain time to process complete thoughts and provides natural reading rhythm.
-
-**Example**:
-- Word duration at 300 WPM = 200ms
-- Sentence-end word duration = 200ms × 1.8 = 360ms
-
-The algorithm intelligently handles quoted text and closing brackets by stripping them to detect the actual punctuation.
-
-## Available Scripts
-
-### Development
-```bash
-npm run dev
-```
-Starts the development server on port 3000 with hot module replacement.
-
-### Build for Production
-```bash
-npm run build
-```
-Creates an optimized production build in the `dist/` directory. Runs TypeScript type-checking followed by Vite bundling.
-
-### Preview Production Build
-```bash
-npm run preview
-```
-Serves the production build locally to test before deployment.
-
-### Linting
-```bash
-npm run lint
-```
-Runs ESLint to check code quality and style consistency.
-
-## Deployment
-
-This app is optimized for deployment on Netlify.
-
-### Prerequisites for Deployment
-
-The Vite configuration includes `allowedHosts` to support deployment domains:
-
-```typescript
-// vite.config.ts
-server: {
-  host: "0.0.0.0",
-  port: 3000,
-  allowedHosts: [process.env.PREDEV_DEPLOYMENT_URL || 'speedread-6f0f.pre.dev']
-}
-```
-
-### Deploy to Netlify
-
-1. Push your repository to GitHub
-2. Connect the repository to Netlify
-3. Configure build settings:
-   - **Build command**: `npm run build`
-   - **Publish directory**: `dist`
-4. Deploy!
-
-Netlify will automatically build and deploy on every push to the main branch.
-
-## Browser Support
-
-- Modern browsers (Chrome, Firefox, Safari, Edge)
-- Requires ES2020+ support
-- Mobile-friendly responsive design
-
-## Performance
-
-- **Bundle Size**: ~250KB (gzipped)
-- **First Paint**: <1 second on modern connections
-- **HMR**: Instant updates during development
-- **Production**: Fully optimized tree-shaken build
-
-## Contributing
-
-Feel free to fork, modify, and enhance this project. Some ideas for extensions:
-
-- Dark/light theme toggle
-- Text file upload (`.txt`, `.pdf`)
-- Reading history and statistics
-- Different playback modes (phrase-by-phrase, sentence-by-sentence)
-- Text-to-speech integration
-- Reading difficulty analysis
-
-## License
-
-MIT - Feel free to use this project for personal or commercial purposes.
-
-## Support
-
-For issues or questions, please check the GitHub issues page or contact the maintainers.
+SpeedRead runs entirely locally in your browser. No data is collected, stored, or transmitted. The extension only accesses the content of the current tab when activated.
 
 ---
 
-**Happy fast reading! 📖⚡**
+<p align="center">
+  <a href="https://pre.dev">
+    <img src="https://img.shields.io/badge/Built%20on-pre.dev-black?style=for-the-badge" alt="Built on pre.dev">
+  </a>
+</p>
+
+<p align="center">
+  MIT License
+</p>

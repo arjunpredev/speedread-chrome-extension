@@ -16,7 +16,7 @@
       "128": "icon-128.png"
     }
   },
-  "permissions": ["activeTab", "scripting"],
+  "permissions": [],
   "background": {
     "service_worker": "background.js",
     "type": "module"
